@@ -14,10 +14,10 @@ fizzbuzz(16);
 
 const fizzbuzz = num => { 
     const output = [];
-    for (let i = 1; i < num; i++) {
-        if (i % 3 === 0 && i % 5 === 0) {output.push("fizzbuzz")
-    } else if (i % 3 === 0) {output.push("fizz")
-    } else if (i % 5 === 0) {output.push("buzz")
+    for (let i = 1; i <= num; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {output.push(`fizzbuzz`)
+    } else if (i % 3 === 0) {output.push(`fizz`)
+    } else if (i % 5 === 0) {output.push(`buzz`)
     } else output.push(i)  
     }
     return output;
@@ -45,16 +45,16 @@ fizzbuzzbazz(22);
 */
 
 const fizzbuzzbazz = num => {
-    let output = [];
-    for (let i = 1; i < num; i++ ){
-    if (i % 3 === 0 && i % 5 === 0 && i % 7 === 0) output.push (`fizzbuzzbazz`);
-    else if (i % 3 === 0 && i % 5 === 0 ) output.push `fizzbuzz`;
-    else if (i % 3 === 0 && i % 7 === 0) output.push `fizzbaazz`;
-    else if (i % 5 === 0 && i % 7 === 0) output.push `buzzbazz`;
-    else if (i % 3 === 0) output.push `fizz`;
-    else if (i % 5 === 0) output.push `buzz`;
-    else if (i % 7 === 0) output.push `bazz`;
-    else output.push(i)
+    const output = [];
+    for (let i = 1; i <= num; i++ ){
+        if (i % 3 === 0 && i % 5 === 0 && i % 7 === 0) output.push('fizzbuzzbazz');
+        else if (i % 3 === 0 && i % 5 === 0 ) output.push (`fizzbuzz`);
+        else if (i % 3 === 0 && i % 7 === 0) output.push(`fizzbaazz`);
+        else if (i % 5 === 0 && i % 7 === 0) output.push(`buzzbazz`);
+        else if (i % 3 === 0) output.push(`fizz`);
+        else if (i % 5 === 0) output.push(`buzz`);
+        else if (i % 7 === 0) output.push(`bazz`);
+        else output.push(i)
     }
     return output;
   };
