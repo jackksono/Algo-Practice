@@ -18,9 +18,18 @@ drawStairs(6) ->
 */
 
 const drawStairs = n => {
-
+ if (n < 1) {console.log(``)}
+ let fillArray = new Array(n).fill(` `);
+ //console.log(fillArray)
+ while (fillArray.indexOf(` `) !== -1) {
+     fillArray.shift();
+     fillArray.push(`*`);
+     console.log(fillArray.join(``));
+     n--;
+ }
 };
 
+(drawStairs(6))
 /* 
 
 Extension:
@@ -47,7 +56,16 @@ drawStar(5) ->
 */
 
 const drawStar = n => {
-
+ if (n % 2 === 0){return ``}
+ let fillArray = new Array(n).fill(` `);
+ //n must be oddd, dont continue if even
+     //if n = 1; console log +;
+     if (n === 1) {fillArray.push(`+`)
+     console.log(fillArray.join(``))}
+//if n > 1, want to extend + with `-` on both sides and add `\ | /` on the top and bottom of each
+     //else if (n > 1)
 };
+
+drawStar(1)
 
 module.exports = { drawStairs, drawStar };
