@@ -18,15 +18,11 @@ drawStairs(6) ->
 */
 
 const drawStairs = n => {
- if (n < 1) {console.log(``)}
- let fillArray = new Array(n).fill(` `);
- //console.log(fillArray)
- while (fillArray.indexOf(` `) !== -1) {
-     fillArray.shift();
-     fillArray.push(`*`);
-     console.log(fillArray.join(``));
-     n--;
- }
+let stair = 1;
+while (stair <= n) {
+     console.log(` `.repeat(n - stair).concat(`*`.repeat(stair)))
+     stair+=1;
+     }
 };
 
 (drawStairs(6))

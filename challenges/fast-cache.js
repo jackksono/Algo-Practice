@@ -5,16 +5,38 @@
 */
 
 const fastCache = func => {
-  
-};
+    let object = new Set();
+    //let hasBeenCalled = false
+  return function () {
+    object.forEach(element) {
+        if (!object.has(element)) {
+            object.add(func())
+            //hasBeenCalled = true
+        }
+    return object.entries(element)
+    }
+}
+}
 
+fastCache(6)
+fastCache(4)
+fastCache(5)   
+fastCache(4)
 /*
  Extension: Rewrite fastCache so it can handle array or object input, and any number of arguments.
  HINT: you might need to use the spread operator...
 */
 
 const fastCacheAdvanced = func => {
-  
-};
+let tracksCalled = new Set();
+let hasBeenCalled = false
+  return function(...args){
+        tracksCalled.forEach(element => {
+            if (!tracksCalled.has(element)) tracksCalled.add(func(...args))
+        });
+            return (func(...args))
+      }
+    };
+
 
 module.exports = {fastCache, fastCacheAdvanced};
