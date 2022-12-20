@@ -5,16 +5,15 @@
 */
 
 const fastCache = func => {
-    let object = new Set();
+    let cache = {};
     //let hasBeenCalled = false
-  return function () {
-    object.forEach(element) {
-        if (!object.has(element)) {
-            object.add(func())
-            //hasBeenCalled = true
-        }
-    return object.entries(element)
+  return function (arg) {
+    if (Object.hasOwn(cache, arg)) {
+        return cache[arg]
     }
+    const result = func(arg);
+    cache[arg] = result;
+    return result;
 }
 }
 

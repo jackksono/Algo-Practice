@@ -16,10 +16,26 @@ commonElements(arr1, arr2, arr3) -> [2, 3, 2000, 'dog']
 */
 
 const commonElements = (...args) => {
+    const cache = {};
+    const flatArr = args.flat();
+    const commonElements = [];
 
+    flatArr.forEach((item) => {
+        if (!cache.hasOwnProperty(item)) {
+            cache[item] = 1;
+        } else {cache[item]++}
+    })
 }
 
+for (const key in cache) {
+    if (cache[key] === args.length) {
+        if (Number(key)) commonElements.push(Number(key));
+        else {commonElements.push(key)}
+    }
+}
 
+if (commonElements[0]) {return commonElements;}
+return `Nothing in Common!`
 
 /*
 ** Extension **
