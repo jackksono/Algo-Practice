@@ -25,6 +25,20 @@ is within "depth 3". No number is deeper.
 const retrieveDepth = (arr, depth) => {
   if (depth <= 1) return arr.filter(value => !Array.isArray(value));
   return retrieveDepth(arr.flat(),depth - 1)
+
+  //const results = [];
+  //const process = (arr, depth) => {
+  //   if (depth === 0) return;
+
+  //   arr.array.forEach(element => {
+  //     if (Array.isArray(element))
+  //     process(element, depth - 1);
+  //     else  
+  //       results.push(element)
+  //   });
+  // }
+  // process(arr, depth);
+  // return results
 };
 
 console.log(retrieveDepth([2, [4, [7], 1], 5], 1))
