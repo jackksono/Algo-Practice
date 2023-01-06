@@ -18,9 +18,29 @@
 
 
 const twoSum = (arr, target) => { 
+// for (let i = 0; i < arr.length; i++) {
+//   for (let j = 1; j < arr.length; j++) {
+//     if (arr[i] + arr[j] === target) {return true}
+    
+//   }
+// }
+// return false
 
+let cache = {};
+for (let i in arr) {
+  let missing = target - arr[i];
+
+  if (missing in cache) {
+    return true
+  }
+  cache[arr[i]] = i
+}
+return false
 }
 
+const nums = [2, 5, 11, 15]
+console.log(twoSum(nums, 13))
+console.log(twoSum(nums, false))
 /*
 Extension:
 Given an array of numbers and a target number, 
