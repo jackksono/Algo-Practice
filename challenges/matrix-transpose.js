@@ -14,7 +14,14 @@ console.table(matrixTranspose(twoDimArray)); // -> [['fred', 30, true],
 */
 
 const matrixTranspose = matrix => {
+    let output = []
+    for (let i = 0; i < matrix.length; i++ ){
+        for (let j = 0; j < matrix[i].length; j++) {
+            let current =[];
 
+
+        }
+    }
 };
 
 /*

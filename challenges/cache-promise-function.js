@@ -20,7 +20,16 @@ that's convertable to JSON. (This is just the memoize problem)
 */
 
 const memoize = func => {
+  const cache = {};
   
+  return value => {
+    const v = JSON.stringify(value);
+    
+    if (!Object.hasOwn(cache, v))
+      cache[v] = func(value);
+    
+    return cache[v];
+  };
 };
 
 /*

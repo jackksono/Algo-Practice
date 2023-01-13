@@ -30,6 +30,7 @@ const findInOrderedSet2 = (array, target, startIndex = 0, endIndex = array.lengt
     // If the target is less than the midpoint, narrow the search range to the smaller half
     if (array[midIndex] < target) startIndex = midIndex + 1;
   }
+}
 
 
 /*
