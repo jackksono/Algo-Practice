@@ -52,9 +52,37 @@ The straightforward way to solve this problem would take O(n³) time. Is it poss
 */
 
 const threeSum = (arr, target) => { 
+  /* Better attempt  O(n²)  
+   This method uses three pointers where the first pointer is
+   fixed for the first iteration while the other two increment and decrement. 
+   Pointer 1: starts at the first element in the array 
+   Pointer 2: starts at the second element in the array
+   pointer 3: starts at the last element in the array.
+   As we sum the three elements, if the sum is less than the target
+   we will need a larger number. Since the array is sorted, we can increase 
+   pointer 2 for a larger additive. If the sum of the three is larger than the target,
+   we will decrement the last pointer since the larger element is at the end of the array.
+   Big O Analysis (where n is the number of elements)
+   Time Complexity: O(n²)
+   Space Complexity: O(n) : since we are making a copy of the array and sorting the elements in the copy.
+  */
 
-}
+   const copyArr = [...arr];
+   copyArr.sort((a, b) => a - b);
+   for (let i = 0; i < copyArr.length - 2; i += 1) {
+     let j = i + 1;
+     let k = copyArr.length - 1;
+     while (j < k) {
+       if (copyArr[i] + copyArr[j] + copyArr[k] === target) return true;
+       else if (copyArr[i] + copyArr[j] + copyArr[k] < target) j += 1;
+       else k -= 1;
+     }
+   }
+   return false;
+ }
 
+ //const nums = [2, 5, 11, 15]
+ console.log(threeSum(nums, 31))
 
 
 

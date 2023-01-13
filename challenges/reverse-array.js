@@ -7,8 +7,11 @@ to the array prototype while solving the problem.
 */
 
 const reverseArray = array => {
-  
-};
+  for (let i = array.length -1; i >=0; i--) {
+    array.push(array[i])
+  }
+  }
+
 
 /*
 
