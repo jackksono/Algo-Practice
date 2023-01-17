@@ -26,8 +26,24 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head){
+  //return undefined if there are invalid inputs
+  if (!head || k === 0) return undefined;
+  //declare 2 pointers fast and slow. fast pointer should have the value on the slow pointer
+  let fast = head;
+  let slow = head;
 
+  for (let i = 0; i < k-1; i++) {
+    fast = fast.next
+  }
+
+  while(fast.next) {
+    fast= fast.next;
+    slow = slow.next
+  }
+  return slow.value
 }
 
+
+console.log(kthToLastNode(2, a))
 //Do not delete! 
 module.exports = {Node, kthToLastNode};
