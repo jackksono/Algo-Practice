@@ -32,17 +32,30 @@ function kthToLastNode(k, head){
   let fast = head;
   let slow = head;
 
-  for (let i = 0; i < k-1; i++) {
+  for (let i = 0; i < k; i++) {
+    if (!fast) return
     fast = fast.next
   }
 
-  while(fast.next) {
+  while(fast) {
     fast= fast.next;
     slow = slow.next
   }
   return slow.value
 }
 
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+const d = new Node('D');
+const e = new Node('E');
+
+
+ a.next = b;
+ b.next = c;
+ c.next = d;
+ d.next = e;
+ 
 
 console.log(kthToLastNode(2, a))
 //Do not delete! 
