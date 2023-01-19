@@ -29,7 +29,24 @@ function Node(val) {
 }
 
 const linkedListRemove = (ll, val) => {
-
+  let currNode = ll.head;
+  //edge case of head reasssignment
+  if (currNode.val === val) {
+    ll.head = ll.head.next;
+    currNode.next = null;
+    return currNode
+  }
+  //everything else will be handlded here
+  while (currNode.next) {
+    //logic to find the next node with value
+    if (currNode.next.val === val) {
+      let removedNode = currNode.next;
+      currNode.next = currNode.next.next;
+      return removedNode
+    }
+    //moving the current node forward
+    currNode = currNode.next
+  }
 };
 
 
@@ -50,7 +67,7 @@ Given a linked list:
 */
 
 const linkedListRemoveMultiple = (ll, val) => {
-
+ 
 }
 
 module.exports = { LinkedList, Node, linkedListRemove, linkedListRemoveMultiple };

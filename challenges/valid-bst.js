@@ -38,10 +38,15 @@ function BinaryTree(value) {
   this.value = value;
   this.left = null;
   this.right = null;
+  
 }
 
 const validBST = tree => {
+ if (this.left > value) return false
+ if (this.right < value) return false
 
+this.right = this.right.value
+this.left = this.left.value
 }
 
 module.exports = { BinaryTree, validBST };
