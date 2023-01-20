@@ -67,6 +67,9 @@ Given a linked list:
 */
 
 const linkedListRemoveMultiple = (ll, val) => {
+ while (ll.head.val === val) {
+  ll.head = ll.head.next;
+ }
  
 }
 

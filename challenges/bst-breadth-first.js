@@ -36,6 +36,7 @@ Utilizing recursion is not necessary, nor recommended.
 */
 
 const bfs = (root, callback) => {
+  this.value = root;
   
 };
 

@@ -42,11 +42,26 @@ function BinaryTree(value) {
 }
 
 const validBST = tree => {
- if (this.left > value) return false
- if (this.right < value) return false
+ const array = [];
 
-this.right = this.right.value
-this.left = this.left.value
+ //perform a depth first in order traversal
+
+ function treeToArray(tree) {
+  if (!tree) return;
+
+  treeToArray(tree.left);
+  array.push(tree.value);
+  treeToArray(tree.right)
+ }
+
+ treeToArray(tree);
+
+ for (let j = 0; j < array.length - 1; j++) {
+  if (array[j] >= array[j+1]) {
+    return false
+  }
+ }
+ return true
 }
 
 module.exports = { BinaryTree, validBST };
