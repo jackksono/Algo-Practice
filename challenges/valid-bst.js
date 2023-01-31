@@ -42,7 +42,7 @@ function BinaryTree(value) {
 }
 
 const validBST = tree => {
- const array = [];
+ const array = []; //[1, 2, 3, 5]
 
  //perform a depth first in order traversal
 
