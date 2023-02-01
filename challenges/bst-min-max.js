@@ -29,7 +29,17 @@ returns 8, becuase 9 - 1 = 8
 */
 
 const bstMinMax = root => {
-  
+  let queue = [root]
+  let min = root.value
+  let max = root.value
+  while (queue.length ){
+    const current = queue.shift();
+    if (current.left) queue.push(current.left);
+    if (current.right) queue.push(current.right);
+    min = Math.min(min, current.value)
+    max = Math.max(max, current.value)
+  }
+  return Math.abs(max - min)
 };
 
 /*

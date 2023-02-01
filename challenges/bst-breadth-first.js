@@ -37,6 +37,15 @@ Utilizing recursion is not necessary, nor recommended.
 
 const bfs = (root, callback) => {
   this.value = root;
+  const q =[];
+
+  if (root) {q.unshift(root)}
+  while (q.length) {
+    const current = q.shift();
+    callback(current.value)
+    if (current.left) q.push(current.left);
+    if (current.right) q.push(current.right)
+  }
   
 };
 
