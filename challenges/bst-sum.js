@@ -14,7 +14,18 @@ function.
 */
 
 const bstSum = root => {
-  
+  let count = 0;
+  let queue = [root];
+
+  if (root) queue.unshift(root)
+  while (queue.length) {
+    const current = queue.shift();
+    count += current.value;
+
+    if (current.left) queue.push(current.left)
+    if (current.right) queue.push (current.right)
+  }
+  return count
 };
 
 /*
