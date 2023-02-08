@@ -40,7 +40,14 @@ function.
 */
 
 const bstReverse = root => {
-  
+  if (root.left) bstReverse(root.left)
+  if (root.right) bstReverse(root.right)
+
+  const temp = root.left;
+  root.left=root.right
+  root.right = temp
+
+  return root
 };
 
 /*
@@ -80,7 +87,18 @@ Math.ceil function)
 */
 
 const sortedArrayToBST = arr => {
+  const generate = (i, j) => {
+    if (i > j) return null;
+    
+    const mid = Math.ceil((i + j) / 2);
+    const subHead = new BinarySearchTree(arr[mid]);
+    
+    subHead.left = generate(i, mid - 1);
+    subHead.right = generate(mid + 1, j);
+    return subHead;
+  };
   
+  return generate(0, arr.length - 1);
 };
 
 module.exports = {BinarySearchTree, bstReverse, sortedArrayToBST};

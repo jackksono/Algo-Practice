@@ -13,7 +13,26 @@
 */
 
 const mergeSort = array => {
-
+  if (array.length < 2) return array
+ const half = Math.floor(array.length / 2);
+ const left = mergeSort(array.slice(0, half));
+ const right = mergeSort(array.slice(half));
+ return merge (left, right)
 }
+
+function merge (left, right) {
+  const merged = [];
+  let index1 = 0;
+  let index2 = 0;
+  while (left[index1] !== undefined || right[index2] !== undefined) {
+    if (left[index1] < right[index2]) 
+      merged.push(left[index1++])
+    else if (left[index1 >= right[index2]]) 
+      merged.push(right[index2++])
+    else merged.push(left[index1++] || right[index2++])
+  }
+}
+
+//look up heap sort
 
 module.exports = { mergeSort };

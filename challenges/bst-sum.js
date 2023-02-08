@@ -17,7 +17,7 @@ const bstSum = root => {
   let count = 0;
   let queue = [root];
 
-  if (root) queue.unshift(root)
+ // if (root) queue.unshift(root)
   while (queue.length) {
     const current = queue.shift();
     count += current.value;
@@ -27,6 +27,9 @@ const bstSum = root => {
   }
   return count
 };
+
+
+
 
 /*
 

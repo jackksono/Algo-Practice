@@ -14,9 +14,25 @@ whole array, the array will end up being sorted.
 */
 
 const selectionSort = array => {
-  
+  for (let i = 0; i < array.length; i++) {
+    let minimum = i
+    for (let j = i+1; j < array.length; j++) {
+        if (array[j] < array[minimum]) {
+            minimum = j
+        }
+    }
+    if (minimum !== i) {
+        let temp = array[i];
+        array[i] = array[minimum];
+        array[minimum] = temp
+    }
+  }
+  return array
 };
 
+let array = [4, 1, 5, 7, 6]
+selectionSort(array)
+console.log(array)
 /*
 
 Extension:
