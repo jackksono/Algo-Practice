@@ -20,8 +20,24 @@ The strings must be returned in the order suggested above.
 
 const rps = n => {
   
+  const output =[];
+  const generate = str => {
+    if (str.length === n) {
+      output.push(str);
+      return
+    } 
+
+    generate (str + 'r');
+    generate (str + 'p');
+    generate (str + 's');
+  }
+
+  generate('');
+  return output;
 };
 
+console.log(rps(0))
+console.log(rps(2))
 /*
 
 Extension:
@@ -48,7 +64,20 @@ The strings must be returned in order reflecting the order of letters in 'chars'
 */
 
 const passwords = (chars, n) => {
+  const results = [];
   
-};
-
+  const generate = str => {
+    if (str.length === n) {
+      results.push(str);
+      return;
+    }
+    
+    for (const char of chars) {
+      generate(str + char);
+    }
+  };
+  
+  generate('');
+  return results;
+}
 module.exports = {rps, passwords};

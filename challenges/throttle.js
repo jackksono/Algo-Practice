@@ -64,8 +64,26 @@ throttle and debounce) here: https://tomekdev.com/posts/throttle-vs-debounce-on-
 */
 
 const throttle = (f, t) => {
-  
+  let thereBeCake = true;
+  return function () {
+    if (thereBeCake) {
+        f.apply(this, arguments);
+        thereBeCake = false;
+        setTimeout(()=> thereBeCake = true, t)
+        if (t === 10) console.log('cake requested');
+        if (t === 20) console.log('')
+    }
+  }
 };
+
+const throttleDisplay = throttle(()=> console.log('cake given'), 1000);
+
+for (let i = 0; i < 20; i++) {
+    setTimeout(throttleDisplay, i*1000)
+}
+
+console.log(throttle(throttleDisplay, 1000));
+//console.log(throttleDisplay)
 
 module.exports = {throttle};
 
