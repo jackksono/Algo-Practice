@@ -64,23 +64,39 @@ throttle and debounce) here: https://tomekdev.com/posts/throttle-vs-debounce-on-
 */
 
 const throttle = (f, t) => {
-  let thereBeCake = true;
-  return function () {
-    if (thereBeCake) {
-        f.apply(this, arguments);
-        thereBeCake = false;
-        setTimeout(()=> thereBeCake = true, t)
-        if (t === 10) console.log('cake requested');
-        if (t === 20) console.log('')
-    }
-  }
+   // "ready" refers to whether your mom is willing to give you cake. A "ready" mom is one
+  // that can give you a piece immediately either because it's the first time you're asking
+  // or the set time interval has passed.
+  let ready = true;
+  // "asked" refers to whether you've asked for cake
+  let asked = false;
+  // function that represents receiving cake
+  const receiveCake = () => {
+    ready = false; // mom will no longer give you cake for a set period of time once receiveCake is invoked
+    asked = false; // asked is now false since you haven't asked for a new piece of cake yet
+   
+    // ensure that after a set time interval, you will receive cake if you've asked. If you haven't asked,
+    // then set ready to be true for when you're ready for another slice of cake
+    setTimeout(() => {
+      if (asked)
+        receiveCake();
+      else
+        ready = true;
+    }, t);
+   
+    // receiveCake invoked!
+    f();
+  };
+  // This is our main function. If your mom is "ready", you receiveCake.
+  // Otherwise, just set asked to true (if you haven't asked already).
+  return () => {
+    if (ready)
+      receiveCake();
+    else
+      asked = true;
+  };
 };
 
-const throttleDisplay = throttle(()=> console.log('cake given'), 1000);
-
-for (let i = 0; i < 20; i++) {
-    setTimeout(throttleDisplay, i*1000)
-}
 
 console.log(throttle(throttleDisplay, 1000));
 //console.log(throttleDisplay)
