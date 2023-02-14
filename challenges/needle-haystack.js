@@ -34,7 +34,13 @@ Output: false
 */
 
 const needleInHaystackWithWildcards = (string, substring) => {
-
+    for (let leftToRight = 0; leftToRight + substring.length <= string.length; leftToRight += 1) {
+        for (let index = 0; index < substring.length; index += 1) {
+          if (!(string[leftToRight + index] === substring[index] || substring[index] === '_' || '_' === string[leftToRight + index])) break;
+          if (index === substring.length - 1) return true;
+        }
+      }
+      return false;
 };
 
 module.exports = { needleInHaystack, needleInHaystackWithWildcards };
