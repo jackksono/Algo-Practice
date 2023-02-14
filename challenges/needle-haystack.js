@@ -16,7 +16,10 @@ Output: false
 */
 
 const needleInHaystack = (string, substring) => {
-
+ for (let i = 0; i + substring.length <= string.length; i++) {
+    if (substring === string.slice(i, i + substring.length)) return true;
+ }
+ return false;
 };
 
 /*
