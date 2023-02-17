@@ -19,9 +19,46 @@ Be careful in this problem! What if there is a zero (or multiple zeroes) in the
 input array? How would you handle this?
 
 */
+//input: array
+//ouput: array of product of everything but current index in input array
+
+// const getAllProducts = array => {
+//   //create output result
+//   const output = [];
+//   const generate = (result, arrayI, index) => {
+//     console.log(result)
+//     console.log(index)
+//    if (output.length === array.length) return
+//    if (array[arrayI] === array[index]) {
+//     //check to see if index equals the length of the array because you need to reset it
+//     generate(result, arrayI, ++index)
+//     }
+//   if (index === array.length) {
+//         output.push(result);
+//         generate(array[arrayI], ++arrayI, index=0)
+//     }
+//         //multiple by every index
+//         result = result* array[index];
+//         generate(result, arrayI, ++index)
+    
+//   }
+//   generate(1,0,0)
+//   return output
+// };
 
 const getAllProducts = array => {
-  
+  return array.map((el, i, arr) => {
+    let product = 1;
+    for(let j = 0; j < arr.length; j++) {
+      if(j !== i) product *= arr[j];
+    }
+    
+    return product;
+  })
 };
+
+console.log(getAllProducts([2,5,3]))
+console.log(getAllProducts([1,7,3,4]))
+console.log(getAllProducts([2,3]))
 
 module.exports = { getAllProducts };
