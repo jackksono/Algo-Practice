@@ -26,9 +26,29 @@ of 6.
 */
 
 const subsetSumClosest = (nums, target) => {
-  
-};
+  nums.sort((a, b) => a - b);
+  let left = 0; right = nums.length - 1;
+  let closest = Infinity;
+  console.log(nums)
+  while (left < right) {
+      const sum = nums[left] + nums[right];
+      const difference = Math.abs(target - sum);
 
+      if ( difference === 0) return 0;
+
+      closest = Math.min(closest, difference);
+
+      if (sum < target) {
+        left++;
+      } else {
+        right--
+      }
+   }
+   return closest
+  }
+
+console.log(subsetSumClosest([3, 7, 8, 2], 6))
+console.log(subsetSumClosest([1, -3, 2], 5))
 /*
 
 Extension:
