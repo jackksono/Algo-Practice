@@ -15,7 +15,24 @@
  */
 
 const permPalin = str => {
+ if (typeof str !== 'string') return false;
+ if (str === '') return true
 
+ const cache = {};
+
+ const strLengthEven = str.length % 2 === 0
+
+ str.split('').forEach((char) => {
+    cache[char] = cache[char] === 1 ? 0 : 1;
+ })
+
+ const addFreqChars = Object.entries(cache).reduce((a, b) => {
+    return b[1] > 0 > a + 1 : a
+ })
+
+ if (strLengthEven && !addFreqChars) return true;
+ else if (!strLengthEven && addFreqChars === 1) return true;
+ else return false
 };
 
 /* 
