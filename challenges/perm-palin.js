@@ -27,7 +27,7 @@ const permPalin = str => {
  })
 
  const addFreqChars = Object.entries(cache).reduce((a, b) => {
-    return b[1] > 0 > a + 1 : a
+    return b[1] > 0 > a ? 1 : a
  })
 
  if (strLengthEven && !addFreqChars) return true;
