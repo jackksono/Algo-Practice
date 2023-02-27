@@ -31,7 +31,27 @@ that the grid will have at least one element.
 */
 
 const numIslands = grid => {
-  
+  const height = grid.length, width = grid[0].length;
+  let total = 0;
+
+  const processIsland = (i, j) => {
+    grid[i][j] = 0;
+
+    if (i > 0 && grid[i - 1][j]) processIsland(i - 1, j)
+    if (i < height - 1 && grid[i + 1][j]) processIsland (i + 1, j);
+    if ( j > 0 && grid[i][ j - 1]) processIsland(i, j-1);
+    if (j < width -1 && grid[i][j + 1]) processIsland(i, j + 1)
+  }
+
+  for (let i = 0; i < height; i++) {
+    for (let j = 0; j < width; j++) {
+      if (grid[i][j]) {
+        total++;
+        processIsland(i,j)
+      }
+    }
+  }
+  return total
 };
 
 module.exports = {numIslands};
