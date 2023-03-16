@@ -20,7 +20,7 @@ var lengthOfLongestSubstring = function(s) {
     else return tempStr.length
 };
 
-console.log(lengthOfLongestSubstring('abcabcbb')) //3
+console.log(lengthOfLongestSubstring('abcabc')) //3
 console.log(lengthOfLongestSubstring('bbbb')) //1
 console.log(lengthOfLongestSubstring('pwwkew')) //3
 console.log(lengthOfLongestSubstring('au'))
