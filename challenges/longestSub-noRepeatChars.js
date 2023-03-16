@@ -3,11 +3,10 @@
 var lengthOfLongestSubstring = function(s) {
     if (s.charCodeAt(0) <= 32) return 1
     let string = '';
-    let tempStr = '';
     for (let i = 0; i < s.length; i++) {
-      	if (tempStr.length > string.length) string = tempStr
-        else if (tempStr.includes(s[i])) string = tempStr
-        else tempStr += s[i]
+      	// if (tempStr.length > string.length) string = tempStr
+        if (string.includes(s[i])) return string.length
+        else string += s[i]
         // console.log(string)
         // console.log(tempStr)
     }
