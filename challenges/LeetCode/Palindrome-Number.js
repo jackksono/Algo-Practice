@@ -1,10 +1,10 @@
 var isPalindrome = function(x) {
-    for (let i = 0; i < x.length; i++) {
-        console.log(x[i])
-        if (x[i] === x[x - 1 - i]) return true
-        else return false
-    }
-    
+    //convert number to string
+    const string = x.toString()
+    //reverse the number by splitting it into an array of characters, reversing the order and then joining it back together
+    const reversedStr = string.split('').reverse('').join('')
+    return string === reversedStr
 };
 
 console.log(isPalindrome(121))
+console.log(isPalindrome(1331))
