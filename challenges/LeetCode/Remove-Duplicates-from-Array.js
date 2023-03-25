@@ -16,6 +16,8 @@ var removeDuplicates = function(nums) {
 
 let uniqueIndex = 0;
 for (let i = 1; i < nums.length; i++) {
+    // console.log(nums[i])
+    // console.log(nums[uniqueIndex])
     if (nums[i] !== nums[uniqueIndex]) {
         uniqueIndex++;
         nums[uniqueIndex] = nums[i]
@@ -23,4 +25,6 @@ for (let i = 1; i < nums.length; i++) {
   }
   return uniqueIndex + 1
 }
-console.log(removeDuplicates([1, 1, 2]))
+
+//console.log(removeDuplicates([1, 1, 2]))
+console.log(removeDuplicates([1, 1, 2, 2, 3, 4]))
