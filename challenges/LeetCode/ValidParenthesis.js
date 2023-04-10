@@ -13,21 +13,22 @@ var isValid = function(s) {
   console.log(newArr)
 
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === '(' || arr[i] === '{' || arr[i] === '[') {
-        newArr.push(arr[i])}
+    if (arr[i] == '(' || arr[i] == '{' || arr[i] == '[') {
+        newArr.push(arr[i])
+    }
         console.log(newArr)
-        if (newArr.length === 0) return false
+        if (newArr.length === 0) return false;
 
         if (arr.pop() === ')') {
-            if (newArr[0] === '(' || '{' || '[') return true
+            if (newArr[0] === '(' || '{' || '[') return true;
         }
 
         if (arr.pop() === ']') {
-            if (newArr[0] === '(' || '{' || '[') return true
+            if (newArr[0] === '(' || '{' || '[') return true;
         }
 
         if (arr.pop() === '}') {
-            if (newArr[0] === '(' || '{' || '[') return true
+            if (newArr[0] === '(' || '{' || '[') return true;
         }
     else return false
   }
