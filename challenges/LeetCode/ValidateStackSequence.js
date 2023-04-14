@@ -7,6 +7,7 @@ var validateStackSequences = function(pushed, popped) {
     for (let i = 0; i < pushed.length; i++) {
         output.push(pushed[i]);
         while (output.length > 0 && output[output.length - 1] === popped[j]) {
+            console.log(output)
             output.pop();
             j++
         }
@@ -15,3 +16,4 @@ var validateStackSequences = function(pushed, popped) {
 };
 
 console.log(validateStackSequences([1,2,3,4,5], [4,5,3,2,1]))
+console.log(validateStackSequences([1,2,3,4,5], [4,3,5,1,2]))
