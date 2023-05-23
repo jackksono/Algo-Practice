@@ -58,4 +58,4 @@ function getIndex(head, node) {
   return index;
 };
 
-console.log(getIndex(6,[[0,1],[0,2],[2,5],[3,4],[4,2]]))
+console.log(getIndex(6,[[0,1],[0,2],[2,5],[3,4],[4,2]])) //answer
