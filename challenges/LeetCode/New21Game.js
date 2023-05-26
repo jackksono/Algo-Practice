@@ -22,12 +22,10 @@ var new21Game = function(n, k, maxPts) {
       }
     }
   }
-
   let probability = 0;
   for (let i = 1; i <= n; i++) {
     probability += dp[k][i];
   }
-
   return probability;
 }
 
