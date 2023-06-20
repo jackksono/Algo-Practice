@@ -7,16 +7,19 @@ Return the highest altitude of a point.
  */
 
 var largestAltitude = function(gain) {
+    let newArray = [0];
     let highest = 0;
-    let index = 0;
     for (let i = 0; i < gain.length; i++) {
-        if ((gain[i + 1] - gain[i]) > highest) {
-            highest = (gain[i + 1] - gain[i]);
-            index = i + 1
-        }
+        newArray.push((gain[i] + newArray[i]))
+        // console.log(newArray)
     }
-    return index
-};
+    newArray.forEach((element) => {
+        if (element > highest) {
+            highest = element
+        }
+    })
+    return highest
+}
 
 console.log(largestAltitude([-5,1,5,0,-7]))
 console.log(largestAltitude([-4,-3,-2,-1,4,3,2]))
