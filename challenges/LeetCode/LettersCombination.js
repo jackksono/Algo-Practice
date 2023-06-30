@@ -25,6 +25,7 @@ var letterCombinations = function(digits) {
         }
     
         const currentDigit = nextDigits[0];
+        
         const letters = digitMap[currentDigit];
     
         for (let i = 0; i < letters.length; i++) {
